@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: oil-spill-intelligence-backend
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.app:app --host 0.0.0.0 --port $PORT
+    plan: free
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.12
+      - key: AUTH_OPERATOR_ID
+        value: ICG-COMMAND-01
+      - key: AUTH_PASSWORD
+        value: Maritime@2026
